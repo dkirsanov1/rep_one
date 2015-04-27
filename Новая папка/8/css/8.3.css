@@ -1,0 +1,92 @@
+*
+ {
+  margin: 0;
+  padding: 0;
+}
+/*
+body
+{
+  background: url(../images/task.png) no-repeat;
+}
+*/
+.main
+ {
+  margin-top: 23px;
+  margin-left: 29px;
+  height: 283px;
+  width: 309px;
+  border-left: 1px solid #c0c0c0;
+}
+
+.header
+{
+  height: 43px;
+  width: 185px;
+  font-family: Arial;
+  font-size: 23px;
+  padding-left: 51px;
+  margin-top: -4px;
+}
+
+.information
+{
+  width: 185px;
+  font-family: Tahoma;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 45px;
+  padding-left: 51px;
+}
+
+.phone
+{
+  height: 29px; 
+  border-bottom: 1px dashed #c0c0c0;
+  margin-top: -10px; 
+  padding-top: 20px;
+  padding-left: 51px;
+  background: url(../images/phone.jpg) no-repeat;
+}
+
+.fax
+{
+  height: 29px; 
+  border-bottom: 1px dashed #c0c0c0;
+  padding-top: 14px;
+  padding-left: 51px;
+  background: url(../images/fax.jpg) no-repeat;
+}
+
+.email
+{
+  height: 29px; 
+  border-bottom: 1px dashed #c0c0c0;
+  background: url(../images/email.jpg) no-repeat;
+  padding-top: 14px;
+  padding-left: 51px;
+  color: #757575; 
+}
+
+.address
+{
+  height: 100px;  
+  background: url(../images/address.jpg) no-repeat;
+  color: #757575;
+  padding-top: 14px;
+  padding-left: 51px;
+}
+
+.line-height_1
+{
+  line-height: 2.8;
+}
+
+.line-height_2
+{
+  line-height: 0.35;
+}
+
+.line-height_3
+{
+  line-height: 2.85;
+}
