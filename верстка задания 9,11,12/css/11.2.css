@@ -1,0 +1,120 @@
+body
+{
+  padding: 0;
+  margin: 0;
+}
+
+/*
+body
+{
+  margin-left: 18px;
+  margin-top: 150px;
+  background: url(../images/11task.png) no-repeat;
+}
+*/
+
+h1
+{
+  margin-top: -1px;
+  margin-left: 102px;
+  padding-left: 344px;
+  font-size: 34px;
+  font-style: Arial;
+  width: 453px;
+  border-bottom: 2px solid #2279DA;  
+}
+
+.header
+{
+  border-bottom: 1px solid #2279da;
+  font-family: Arial;
+  font-size: 34px;
+  width: 440px;
+  height: 30px;
+  margin-left: 110px;
+  padding-left: 310px;
+}
+
+.textured
+{
+  width: 220px;
+  height: 204px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 7px;
+  padding-top: 20px;
+  font-family: Tahoma;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.textured_text
+{
+  margin-top: 2px;
+  color: #323243;
+}
+
+.first
+{
+  margin-top: 11px;
+  margin-left: 135px;
+  background: url(../images/texture1.jpg);
+  float: left;
+}
+
+.second
+{
+  margin-top: 11px;    
+  margin-left: 36px;
+  background: url(../images/texture3.jpg);
+  float: left;
+  position: relative;
+}
+
+.third
+{
+  position: absolute;
+  top: 0%;
+  left: 116%;
+  background: url(../images/texture2.jpg);
+}
+
+.clear
+{
+  clear: both;
+}
+
+.advt
+{
+  position: absolute;
+  top: -10%;
+  left: 88%;
+  background: #BC8F8F;
+  width: 46px;
+  height: 43px;
+  border: 2px solid #FFD700;
+  border-radius: 15px;
+  padding-top: 5px;
+  padding-left: 2px;
+  font: bold 14px Tahoma;
+  color: white;
+}
+
+.button
+{
+  width: 305px;
+  height: 42px;
+  margin-top: 20px;
+  margin-left: 351px;
+  padding-top: 14px;
+  background: url(../images/button.png) no-repeat;
+  color: #41252a;
+  font: bold 16px Tahoma;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover
+{
+  background: url(../images/button-over.png) no-repeat;
+}
