@@ -1,0 +1,124 @@
+﻿D:\web\server2go\server\mysql\bin>mysql --port=7188 -u root
+
+----------------------------------------------------------------------------------
+1) CREATE DATABASE rental;
+
+----------------------------------------------------------------------------------
+2) USE rental;
+
+----------------------------------------------------------------------------------
+3) CREATE TABLE dvd(
+   dvd_id INT(11) UNSIGNED AUTO_INCREMENT,
+   title VARCHAR(255),
+   production_year YEAR,
+   PRIMARY KEY(dvd_id));
+
+----------------------------------------------------------------------------------   
+4) DESCRIBE dvd;
+
+----------------------------------------------------------------------------------
+5)CREATE TABLE customer(
+  customer_id INT(11) UNSIGNED AUTO_INCREMENT,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  passport_code BIGINT(11),
+  registration_date DATE,
+  PRIMARY KEY(customer_id));  
+
+----------------------------------------------------------------------------------
+6)CREATE TABLE offer(
+  offer_id INT(11) UNSIGNED AUTO_INCREMENT,
+  dvd_id INT(11) UNSIGNED,
+  customer_id INT(11) UNSIGNED,
+  offer_date DATE,
+  return_date DATE,
+  PRIMARY KEY(offer_id));
+
+----------------------------------------------------------------------------------
+7)INSERT INTO dvd
+   (title, production_year)
+   VALUES 
+   ('Hills have eyes', 2002),
+   ('Hills have eyes 2', 2007),
+   ('6 demons of emily', 2003),
+   ('The conjuring', 2013),
+   ('Hostel 2', 2007),
+   ('Hostel', 2005), 
+   ('Hostel 3', 2011),
+   ('London boulevard', 2010),
+   ('Choose', 2010),
+   ('White Lion', 2010),
+   ('Moby dick', 2010);  
+
+----------------------------------------------------------------------------------
+8)INSERT INTO customer
+   (first_name, last_name, passport_code, registration_date)
+   VALUES 
+   ('Ivanov', 'Ivan', 9905123456, '2015-05-01'),
+   ('Petrov', 'Petr', 9901321465, '2015-05-02'),
+   ('Ivanov', 'Petr', 9902124365, '2015-05-03'),
+   ('Petrov', 'Ivan', 9907311265, '2015-05-03'),
+   ('Belousov', 'Evgeniy', 9901311250, '2015-05-01'),
+   ('Mihailov', 'Pavel', 9500310251, '2015-05-01'),
+   ('Pozdeev', 'Sergey', 9901310000, '2015-05-03');
+
+----------------------------------------------------------------------------------
+9)INSERT INTO offer
+   (dvd_id, customer_id, offer_date, return_date)
+   VALUES 
+   ('1', '1', '2015-05-01', '2015-05-02'),
+   ('2', '1', '2015-05-01', '2015-05-04'),
+   ('3', '2', '2015-05-02', '2015-05-03'),
+   ('4', '3', '2015-05-03', '2015-05-04'),
+   ('5', '4', '2015-05-03', '2015-05-05'),
+   ('6', '4', '2015-05-03', '2015-05-04'),
+   ('7', '5', '2015-05-01', '2015-05-02'),
+   ('8', '5', '2015-05-01', '2015-05-04'),
+   ('9', '6', '2015-05-01', '2015-05-02'),
+   ('10', '6', '2015-05-01', '2015-05-02'),
+   ('11', '7', '2015-05-03', '2015-05-05'); 
+
+----------------------------------------------------------------------------------
+10)SELECT * FROM
+   dvd
+   WHERE 
+   production_year=2010
+   ORDER BY title; 
+
+----------------------------------------------------------------------------------
+11)SELECT * FROM
+   dvd
+   WHERE
+   dvd_id = (SELECT dvd_id FROM
+             offer
+             WHERE
+             return_date > '2015-05-04');
+
+----------------------------------------------------------------------------------
+16)        
+CREATE TEMPORARY TABLE temp
+SELECT customer_id, dvd_id, first_name, last_name, passport_code, title FROM
+  customer, dvd
+WHERE
+  customer_id = ANY (SELECT customer_id FROM
+                       offer
+                     WHERE
+                       offer_date >= '2015-01-01' AND offer_date <= '2015-12-31')
+AND
+  dvd_id = ANY (SELECT dvd_id FROM
+                  offer
+                WHERE
+                  offer_date >= '2015-01-01' AND offer_date <= '2015-12-31');
+----------------------------------------------------------------------------------
+CREATE TEMPORARY TABLE temp2
+SELECT customer_id, dvd_id FROM
+  offer
+WHERE
+  offer_date >= '2015-01-01' AND offer_date <= '2015-12-31';
+----------------------------------------------------------------------------------
+SELECT first_name, last_name, passport_code, title FROM
+  temp, temp2
+WHERE
+  temp.customer_id = temp2.customer_id AND temp.dvd_id = temp2.dvd_id;
+   
+        
