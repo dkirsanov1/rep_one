@@ -23,14 +23,14 @@
     function SaveSurveyToFile($survey)
     {
         if (!empty($survey['email']))  
-		{
-		    $filename = $survey['email'];  
-		    $filePath = GetSurveyFilePath($filename);
+        {
+            $filename = $survey['email']; 
+            $filePath = GetSurveyFilePath($filename);
             return file_put_contents($filePath, serialize($survey));
         }
 		else
 		{
-		    return $errorCode = ERR_NO_NAME;    
+            return $errorCode = ERR_NO_NAME;    
 		}
 	}
     
