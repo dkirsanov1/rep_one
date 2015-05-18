@@ -28,11 +28,11 @@
             $filePath = GetSurveyFilePath($filename);
             return file_put_contents($filePath, serialize($survey));
         }
-		else
-		{
+	else
+	{
             return $errorCode = ERR_NO_NAME;    
-		}
 	}
+    }
     
     function GetSurveyFromFile($filename, &$errorCode)
     {
