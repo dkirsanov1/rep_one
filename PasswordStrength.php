@@ -1,5 +1,5 @@
 <?php
-    require_once 'request.php';
+    require_once 'include/request.inc.php';
     require_once 'include/common.inc.php';
     $password = GetParam('password');
     if (empty($password))
